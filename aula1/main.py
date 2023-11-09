@@ -4,11 +4,6 @@ app = Flask(__name__)
 
 # crair a 1° pag do site
 
-# route -> arthursite/ ... arthursite.com/usuario ... /contatos -> ou seja o caminho do site
-# funçao -> o qe quero exibir na página
-# template
-
-
 @app.route("/")
 def homepage():
     return render_template("homepage.html")
