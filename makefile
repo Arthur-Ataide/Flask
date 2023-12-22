@@ -1,10 +1,11 @@
 all:
+	
 	clear
-	cd basico && python3 main.py
+	python3 makefile.py
 
 F:	
 	clear
-	python3 makefile.py
+	cd basico && python3 main.py
 
 criar:
 	venv/bin/pip3 freeze > requirements.txt
