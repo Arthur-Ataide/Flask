@@ -9,3 +9,9 @@
     - Controller (Parte logica)
 
     - view -> (mostra pro usuario) -> usuario -> (interage com o controller) -> controller -> (manipula o banco de dados) -> model -> (atualiza a view) -> view -> (...)
+    
+# GET -> obter dados
+# POST -> enviar dados
+# PUT -> atualizar dados
+# DELETE -> deletar dados
+# PATCH -> atualizar dados parcialmente
