@@ -23,5 +23,6 @@ def login():
 def sucesso():
     return 'Login com sucesso'
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
     

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    
+    {%if username != ''%}
+        <h1>Olá, {{username}}</h1>
+        <p> Para sair <a href="/logout">clique aqui</a></p>
+
+    {%else%}
+        <h1>Quem é voce?</h1>
+        <p>Para acessar o conteudo, faça o login</p>
+        <p> <a href="/login">Login</a></p>
+
+    {%endif%}
+
+</body>
+
+</html>
