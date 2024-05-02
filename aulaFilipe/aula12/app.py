@@ -1,22 +1,35 @@
-# upload de arquivos
+# Seçoes
 
-import os
-from flask import Flask, request, redirect, url_for, send_from_directory, render_template
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, session, request, url_for, redirect
 
 app = Flask(__name__, template_folder='templates')
-UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
+app.secret_key = '123456'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    username = ''
+    if 'username' in session:
+        username = session['username']
+        
+    return render_template('index.html', username=username)
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    file = request.files['image']
-    file.save(os.path.join(UPLOAD_FOLDER, file.filename))
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST' and request.form['username'] != '':
+        session['username'] = request.form['username']
+        return redirect(url_for('index'))
+    
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
     return redirect(url_for('index'))
 
+@app.route('/setse/<username>')
+def setse(username):
+    session['username'] = username
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

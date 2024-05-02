@@ -9,13 +9,17 @@
 
 <body>
     
-    <form action="/uploads" method="post" enctype="multipart/form-data">
-        <p>
-            <input type="file" name="image", id = "image">
-        </p>
-        <p>
-            <button type="submit">Enviar</button>
-        </p>
+    {%if username != ''%}
+        <h1>Olá, {{username}}</h1>
+        <p> Para sair <a href="/logout">clique aqui</a></p>
+
+    {%else%}
+        <h1>Quem é voce?</h1>
+        <p>Para acessar o conteudo, faça o login</p>
+        <p> <a href="/login">Login</a></p>
+
+    {%endif%}
+
 </body>
 
 </html>
